@@ -8,7 +8,7 @@
         android:id="@+id/oldTweetsTitle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="My Habits" />
+        android:text="Habit History" />
 
     <ListView
         android:id="@+id/oldTweetsList"
@@ -23,7 +23,7 @@
         android:id="@+id/hello"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="hello" />
+        android:text="Hello" />
 
     <EditText
         android:id="@+id/body"
@@ -32,15 +32,9 @@
         android:scrollbars="horizontal" />
 
     <Button
-        android:id="@+id/clear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add" />
-
-    <Button
         android:id="@+id/save"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="History" />
+        android:text="Back" />
 
 </LinearLayout>
