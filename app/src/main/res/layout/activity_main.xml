@@ -5,42 +5,30 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/oldTweetsTitle"
+        android:id="@+id/HabitTitle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="My Habits" />
+        android:text="@string/my_habits" />
 
     <ListView
-        android:id="@+id/oldTweetsList"
+        android:id="@+id/HabitList"
         android:layout_width="fill_parent"
-        android:layout_height="263dp"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:scrollbars="vertical" >
 
     </ListView>
 
-    <TextView
-        android:id="@+id/hello"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="hello" />
-
-    <EditText
-        android:id="@+id/body"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="horizontal" />
-
     <Button
-        android:id="@+id/clear"
+        android:id="@+id/AddNewHabit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add" />
+        android:text="@string/add" />
 
     <Button
-        android:id="@+id/save"
+        android:id="@+id/HabitHistory"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="History" />
+        android:text="@string/history" />
 
 </LinearLayout>
