@@ -7,20 +7,20 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
-public class MainActivity extends ActionBarActivity {
-
+/**
+ * Created by Eric Shay on 2016-09-28.
+ */
+public class HabitHistoryActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);}
+        setContentView(R.layout.activity_habit_history);
 
-    public void goToHistory(View view) {
-        Intent intent = new Intent(this, HabitHistoryActivity.class);
-        startActivity(intent);
+        Intent intent = getIntent();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
