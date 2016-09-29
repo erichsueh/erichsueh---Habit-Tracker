@@ -5,26 +5,36 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/oldhabittitle"
+        android:id="@+id/oldTweetsTitle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/habit_history" />
+        android:text="Habit History" />
 
     <ListView
-        android:id="@+id/oldhabitlist"
+        android:id="@+id/oldTweetsList"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
+        android:layout_height="263dp"
         android:layout_weight="1"
-        android:scrollbars="vertical"
-        android:clickable="true">
+        android:scrollbars="vertical" >
 
     </ListView>
+
+    <TextView
+        android:id="@+id/hello"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello" />
+
+    <EditText
+        android:id="@+id/body"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal" />
 
     <Button
         android:id="@+id/BackToMain"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/back"
-        android:background="@android:color/holo_blue_bright" />
+        android:text="Back" />
 
 </LinearLayout>
