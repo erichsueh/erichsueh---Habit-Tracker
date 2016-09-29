@@ -2,13 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:id="@+id/activity_main"
     android:orientation="vertical" >
 
     <TextView
         android:id="@+id/HabitTitle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/my_habits" />
+        android:text="my_habits" />
 
     <ListView
         android:id="@+id/HabitList"
@@ -18,18 +19,28 @@
         android:scrollbars="vertical" >
 
     </ListView>
+    <TextView
+        android:id="@+id/NewHabitDir"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter your new habit" />
 
+    <EditText
+        android:id="@+id/body"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal" />
     <Button
         android:id="@+id/AddNewHabit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/add" />
+        android:text="Add" />
 
     <Button
         android:id="@+id/HabitHistory"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/history"
-        android:onClick = "goToHistory"/>
+        android:text="History"
+        android:onClick="Vhistory"/>
 
 </LinearLayout>

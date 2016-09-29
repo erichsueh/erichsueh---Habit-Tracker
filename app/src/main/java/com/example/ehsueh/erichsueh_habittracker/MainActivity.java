@@ -14,12 +14,16 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);}
+        setContentView(R.layout.activity_main);
 
-    public void goToHistory(View view) {
-        Intent intent = new Intent(this, HabitHistoryActivity.class);
+
+    }
+
+    public void Vhistory(View view){
+        Intent intent = new Intent(this,ViewHistory.class);
         startActivity(intent);
     }
+
 
 
     @Override
