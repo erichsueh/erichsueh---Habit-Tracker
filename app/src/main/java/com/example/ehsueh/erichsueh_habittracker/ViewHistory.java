@@ -16,8 +16,9 @@ public class ViewHistory extends ActionBarActivity {
 
     }
     public void BackToMain(View view){
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this,MainActivity.class);
+        ///startActivity(intent);
+        finish();
     }
 
 }
