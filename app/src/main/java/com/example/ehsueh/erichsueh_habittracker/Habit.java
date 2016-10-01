@@ -9,19 +9,19 @@ import java.util.Date;
 public class Habit {
     private String message;
     private Date date;
-    private ArrayList arrayList;
+   // private ArrayList arrayList;
     private Integer timescompleted;
 
-    public Habit(String newmessage, ArrayList dayotweek){
+    public Habit(String newmessage){
         message = newmessage;
-        arrayList = dayotweek;
+        //arrayList = dayotweek;
         date = new Date();
         timescompleted = 0;
     }
 
     public void Edithabit(String newmessage, ArrayList dayotweek){
         message = newmessage;
-        arrayList = dayotweek;
+        //arrayList = dayotweek;
     }
 
     public void IncreaseCompletion(){
