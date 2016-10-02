@@ -28,9 +28,23 @@ public class HabitList {
         notifyListeners();
     }
 
+    public void DecreaseCounter(Habit oldhabit){
+        oldhabit.DecreaseCompletion();
+        notifyListeners();
+    }
+
     public void removeHabit(Habit oldhabit){
         habitlist.remove(oldhabit);
         notifyListeners();
+    }
+
+    public Habit findHabit(String habitmessage){
+        for( Habit habit : habitlist){
+            if (habit.getMessage() == habitmessage){
+                return habit;
+            }
+        }
+        return null;
     }
 
     public ArrayList<Habit> getHabitlist() {

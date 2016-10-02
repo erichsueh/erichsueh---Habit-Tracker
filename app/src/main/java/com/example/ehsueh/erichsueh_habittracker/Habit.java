@@ -48,4 +48,7 @@ public class Habit {
     public String getDays(){
         return daysoftheweek;
     }
+
+    public void DecreaseCompletion() { timescompleted = timescompleted -1;
+    }
 }

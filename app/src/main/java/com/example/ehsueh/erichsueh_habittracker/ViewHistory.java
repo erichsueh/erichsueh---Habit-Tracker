@@ -50,6 +50,9 @@ public class ViewHistory extends ActionBarActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         CompletedHabits habit = list.get(finalPosition);
+                        Habit anotherhabit =
+                                 HabitListController.getHabitList().findHabit(habit.getFinishedhabit());
+                        HabitListController.getHabitList().DecreaseCounter(anotherhabit);
                         CompletedHabitListController.getcompHabitList().removeHabit(habit);
 
                     }
@@ -67,8 +70,6 @@ public class ViewHistory extends ActionBarActivity {
 
     }
     public void BackToMain(View view){
-        //Intent intent = new Intent(this,MainActivity.class);
-        ///startActivity(intent);
         finish();
     }
 
