@@ -24,7 +24,6 @@ public class MainActivity extends Activity {
     //private HabitList thehabitlist = new HabitList();
     //private ArrayAdapter<Habit> adapter;
     //private ListView HabitAndroidList;
-    HabitListController hl = new HabitListController();
 
 
 
@@ -69,6 +68,8 @@ public class MainActivity extends Activity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Habit habit = list.get(finalPosition);
                         HabitListController.getHabitList().IncreaseCounter(habit);
+                        CompletedHabits comphabit = new CompletedHabits(habit.getMessage());
+                        CompletedHabitListController.getcompHabitList().AddCompletedHabit(comphabit);
                     }
                 });
                 adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

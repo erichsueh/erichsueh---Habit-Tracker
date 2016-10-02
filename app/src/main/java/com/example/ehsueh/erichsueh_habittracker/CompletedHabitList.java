@@ -6,7 +6,42 @@ import java.util.ArrayList;
  * Created by Eric Shay on 2016-10-02.
  */
 public class CompletedHabitList {
-
-    protected ArrayList<Habit> completedhabitlist;
+    protected ArrayList<CompletedHabits> completedhabitlist;
     protected ArrayList<Listener> listeners;
+
+
+    public CompletedHabitList(){
+        completedhabitlist = new ArrayList<CompletedHabits>();
+        listeners = new ArrayList<Listener>();
+    }
+
+    public void AddCompletedHabit(CompletedHabits comphabit){
+        completedhabitlist.add(comphabit);
+        notifyListeners();
+    }
+
+    public void removeHabit(CompletedHabits comphabit){
+        completedhabitlist.remove(comphabit);
+        notifyListeners();
+    }
+
+    public ArrayList<CompletedHabits> getHabitlist() {
+        return completedhabitlist;
+    }
+
+    public void notifyListeners(){
+        for (Listener listener: listeners){
+            listener.update();
+        }
+    }
+
+    public void addListener(Listener l){
+        listeners.add(l);
+
+    }
+
+    public void removeListener(Listener l){
+        listeners.remove(l);
+
+    }
 }
