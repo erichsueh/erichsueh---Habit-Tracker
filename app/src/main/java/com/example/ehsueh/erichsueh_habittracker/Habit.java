@@ -1,6 +1,7 @@
 package com.example.ehsueh.erichsueh_habittracker;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -9,23 +10,23 @@ import java.util.Date;
 public class Habit {
     private String message;
     private Date date;
-    private int[] arrayList;
+    private String daysoftheweek;
     private Integer timescompleted;
 
-    public Habit(String newmessage, int[] dayotweek){
+    public Habit(String newmessage, ArrayList<String> dayotweek){
         message = newmessage;
-        arrayList = dayotweek;
+
+        //StringBuilder Method from
+        // stackoverflow.com/questions/599161/best-way-to-convert-an-arraylist-to-a-string
+        String days = "";
+        for (String s : dayotweek) {
+            days = days + s + " ";
+        }
+
+
+        daysoftheweek = days;
         date = new Date();
         timescompleted = 0;
-    }
-
-    public void Edithabit(String newmessage, ArrayList dayotweek){
-        message = newmessage;
-        //arrayList = dayotweek;
-    }
-
-    public String GetMessage(){
-        return message;
     }
 
     public void IncreaseCompletion(){
@@ -34,10 +35,17 @@ public class Habit {
 
     @Override
     public String toString(){
-        return  date.toString() + " | " + message + "Times Completed" + timescompleted  + "Days:";
+        return  date.toString() +
+                "\n"+ "Habit: " + message +
+                "\n" + "Times Completed: " + timescompleted+
+                "\n"  + "Days:" + daysoftheweek;
     }
 
     public String getMessage() {
         return message;
+    }
+
+    public String getDays(){
+        return daysoftheweek;
     }
 }

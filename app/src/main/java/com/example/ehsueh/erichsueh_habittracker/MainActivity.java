@@ -1,6 +1,8 @@
 package com.example.ehsueh.erichsueh_habittracker;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -51,7 +53,31 @@ public class MainActivity extends Activity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Habit habit = list.get(position);
+                AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
+                adb.setMessage("What would you like to do?");
+                adb.setCancelable(true);
+                final int finalPosition = position;
+                adb.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Habit habit = list.get(finalPosition);
+                        HabitListController.getHabitList().removeHabit(habit);
+                    }
+                });
+                adb.setNeutralButton("+1!", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Habit habit = list.get(finalPosition);
+                        HabitListController.getHabitList().IncreaseCounter(habit);
+                    }
+                });
+                adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                adb.show();
                 return false;
             }
         });

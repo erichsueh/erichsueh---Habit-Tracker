@@ -3,11 +3,11 @@ package com.example.ehsueh.erichsueh_habittracker;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -16,9 +16,7 @@ import java.util.ArrayList;
 public class HabitAdder extends ActionBarActivity{
 
     private EditText bodyText;
-   // private ArrayAdapter<Habit> adapter;
-    //private ListView HabitAndroidList;
-    //private ArrayList<Habit> HabitList = new ArrayList<Habit>();
+    private CheckBox mondaybox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +28,15 @@ public class HabitAdder extends ActionBarActivity{
     public void FinishedAdding(View view) {
         bodyText = (EditText) findViewById(R.id.body);
         String text = bodyText.getText().toString();
-        int[] mArray = new int[]{0,0,0,0,0,0,0};
+        ArrayList<String> mArray = new ArrayList<String>();
+        mondaybox = (CheckBox) findViewById(R.id.MonBox);
+        Boolean test;
+        test = mondaybox.hasSelection();
+        if (mondaybox.isSelected()){
+            mArray.add("Monday");
+        }
+
+
         Habit newhabit = new Habit(text,mArray);
         HabitListController hl = new HabitListController();
         hl.addHabit(newhabit);

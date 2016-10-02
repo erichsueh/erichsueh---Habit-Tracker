@@ -13,11 +13,15 @@ import java.util.ArrayList;
 public class HabitListTester  extends TestCase{
     public void testHabit(){
         String habitname = "Durr";
-        Habit habit = new Habit(habitname);
-        assertTrue(habitname == habit.getMessage());
+        ArrayList<String> days = new ArrayList<String>();
+        days.add("Monday");
+        days.add("Tuesday");
+        Habit habit = new Habit(habitname,days);
+        //assertTrue(habitname == habit.getMessage());
+        assertTrue("Monday Tuesday" == habit.getDays());
     }
 
-    public void testHabitList(){
+    /**public void testHabitList(){
         Habit newhabit = new Habit("ehfosihfo");
         HabitList habitlist = new HabitList();
         assertTrue(habitlist.getCount(0));
@@ -27,7 +31,7 @@ public class HabitListTester  extends TestCase{
 
 
 
-    }
+    }*/
 
 
 }

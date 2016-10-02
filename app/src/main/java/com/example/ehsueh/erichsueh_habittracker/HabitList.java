@@ -23,7 +23,9 @@ public class HabitList {
     }
 
     public void IncreaseCounter(Habit oldhabit){
+
         oldhabit.IncreaseCompletion();
+        notifyListeners();
     }
 
     public void removeHabit(Habit oldhabit){
