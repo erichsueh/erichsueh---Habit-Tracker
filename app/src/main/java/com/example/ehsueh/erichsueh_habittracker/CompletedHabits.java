@@ -22,4 +22,12 @@ public class CompletedHabits {
     public Date getDate() {
         return date;
     }
+
+
+    @Override
+    public String toString() {
+        return "Habit completed on" + date.toString() + "\n" + "Habit that was completed: " + finishedhabit;
+    }
 }
+
+
