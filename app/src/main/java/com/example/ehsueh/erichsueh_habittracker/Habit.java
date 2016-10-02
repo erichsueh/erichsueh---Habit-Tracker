@@ -9,12 +9,12 @@ import java.util.Date;
 public class Habit {
     private String message;
     private Date date;
-   // private ArrayList arrayList;
+    private int[] arrayList;
     private Integer timescompleted;
 
-    public Habit(String newmessage){
+    public Habit(String newmessage, int[] dayotweek){
         message = newmessage;
-        //arrayList = dayotweek;
+        arrayList = dayotweek;
         date = new Date();
         timescompleted = 0;
     }
@@ -24,8 +24,20 @@ public class Habit {
         //arrayList = dayotweek;
     }
 
+    public String GetMessage(){
+        return message;
+    }
+
     public void IncreaseCompletion(){
         timescompleted = 1 + timescompleted;
     }
 
+    @Override
+    public String toString(){
+        return  date.toString() + " | " + message + "Times Completed" + timescompleted  + "Days:";
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }

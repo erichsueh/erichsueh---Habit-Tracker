@@ -12,29 +12,19 @@
         android:text="my_habits" />
 
     <ListView
-        android:id="@+id/HabitList"
+        android:id="@+id/HabitAndroidList"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:scrollbars="vertical" >
 
     </ListView>
-    <TextView
-        android:id="@+id/NewHabitDir"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter your new habit" />
-
-    <EditText
-        android:id="@+id/body"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="horizontal" />
     <Button
-        android:id="@+id/AddNewHabit"
+        android:id="@+id/DisplayHabits"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add" />
+        android:text="Add"
+        android:onClick="AddtoList"/>
 
     <Button
         android:id="@+id/HabitHistory"
