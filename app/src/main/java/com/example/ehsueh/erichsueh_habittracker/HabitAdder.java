@@ -24,6 +24,12 @@ public class HabitAdder extends ActionBarActivity{
     private static final String FILENAME = "file.sav";
     private EditText bodyText;
     private CheckBox mondaybox;
+    private CheckBox tuesdaybox;
+    private CheckBox wednesdaybox;
+    private CheckBox thursdaybox;
+    private CheckBox fridaybox;
+    private CheckBox saturdaybox;
+    private CheckBox sundaybox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +43,40 @@ public class HabitAdder extends ActionBarActivity{
         String text = bodyText.getText().toString();
         ArrayList<String> mArray = new ArrayList<String>();
         mondaybox = (CheckBox) findViewById(R.id.MonBox);
-        Boolean test;
-        test = mondaybox.hasSelection();
-        if (mondaybox.isSelected()){
-            mArray.add("Monday");
+        tuesdaybox = (CheckBox) findViewById(R.id.TueBox);
+        wednesdaybox = (CheckBox) findViewById(R.id.WedBox);
+        thursdaybox = (CheckBox) findViewById(R.id.ThursBox);
+        fridaybox = (CheckBox) findViewById(R.id.FriBox);
+        saturdaybox = (CheckBox) findViewById(R.id.SatBox);
+        sundaybox = (CheckBox) findViewById(R.id.SunBox);
+
+        if (mondaybox.isChecked()){
+            mArray.add("Mon");
         }
 
+        if (tuesdaybox.isChecked()){
+            mArray.add("Tue");
+        }
+
+        if (wednesdaybox.isChecked()){
+            mArray.add("Wed");
+        }
+
+        if (thursdaybox.isChecked()){
+            mArray.add("Thu");
+        }
+
+        if (fridaybox.isChecked()){
+            mArray.add("Fri");
+        }
+
+        if (saturdaybox.isChecked()){
+            mArray.add("Sat");
+        }
+
+        if (sundaybox.isChecked()){
+            mArray.add("Sun");
+        }
 
         Habit newhabit = new Habit(text,mArray);
         HabitListController hl = new HabitListController();

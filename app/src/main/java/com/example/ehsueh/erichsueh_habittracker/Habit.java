@@ -36,9 +36,9 @@ public class Habit {
     @Override
     public String toString(){
         return  date.toString() +
-                "\n"+ "Habit: " + message +
+                "\n"+ "Current Habit: " + message +
                 "\n" + "Times Completed: " + timescompleted+
-                "\n"  + "Days:" + daysoftheweek;
+                "\n"  + "Days of the week:" + daysoftheweek;
     }
 
     public String getMessage() {
