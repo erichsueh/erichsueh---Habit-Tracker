@@ -49,4 +49,8 @@ public class CompletedHabitList {
         listeners.remove(l);
 
     }
+
+    public int getSize() {
+        return completedhabitlist.size();
+    }
 }

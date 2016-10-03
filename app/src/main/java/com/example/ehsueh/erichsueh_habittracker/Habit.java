@@ -51,6 +51,10 @@ public class Habit {
         return daysoftheweek;
     }
 
+    public Integer getTimescompleted() {
+        return timescompleted;
+    }
+
     public void DecreaseCompletion() { timescompleted = timescompleted -1;
     }
 }

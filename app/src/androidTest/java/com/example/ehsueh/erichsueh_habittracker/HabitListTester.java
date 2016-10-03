@@ -11,27 +11,53 @@ import java.util.ArrayList;
  * Created by Eric Shay on 2016-10-01.
  */
 public class HabitListTester  extends TestCase{
-    public void testHabit(){
+
+
+    public void testHabitListAddnRemove(){
+        HabitList newlist = new HabitList();
         String habitname = "Durr";
         ArrayList<String> days = new ArrayList<String>();
         days.add("Monday");
-        days.add("Tuesday");
         Habit habit = new Habit(habitname,days);
-        //assertTrue(habitname == habit.getMessage());
-        assertTrue("Monday Tuesday" == habit.getDays());
+
+        newlist.AddNewHabit(habit);
+        assertTrue(newlist.getSize()== 1);
+        newlist.removeHabit(habit);
+        assertTrue(newlist.getSize() == 0);
     }
 
-    /**public void testHabitList(){
-        Habit newhabit = new Habit("ehfosihfo");
-        HabitList habitlist = new HabitList();
-        assertTrue(habitlist.getCount(0));
-        habitlist.AddNewHabit(newhabit);
-        assertTrue(habitlist.getCount(1));
-        int[] mArray = new int[]{0,0,0,0,1};
+    public void testCounters(){
+        String habitname = "Durr";
+        ArrayList<String> days = new ArrayList<String>();
+        days.add("Monday");
+        Habit habit = new Habit(habitname,days);
 
+        HabitList newlist = new HabitList();
+        newlist.AddNewHabit(habit);
+        newlist.IncreaseCounter(habit);
+        assertTrue(habit.getTimescompleted() == 1);
+        newlist.DecreaseCounter(habit);
+        assertTrue(habit.getTimescompleted()==0);
 
+    }
 
-    }*/
+    public void testfindHabit(){
+        String habitname = "Durr";
+        ArrayList<String> days = new ArrayList<String>();
+        days.add("Monday");
+        Habit habit = new Habit(habitname,days);
 
+        HabitList newlist = new HabitList();
+        newlist.AddNewHabit(habit);
+        Habit anotherhabit = newlist.findHabit(habitname);
+        assertTrue(anotherhabit == habit);
+    }
+
+    public void testhabitlistsetandget(){
+        ArrayList<Habit> hablist = new ArrayList<Habit>();
+        HabitList newlist = new HabitList();
+        newlist.SetHabitList(hablist);
+        assertTrue(hablist == newlist.getHabitlist());
+    }
 
 }

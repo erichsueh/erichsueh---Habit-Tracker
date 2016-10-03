@@ -73,4 +73,8 @@ public class HabitList {
         listeners.remove(l);
 
     }
+
+    public int getSize() {
+        return habitlist.size();
+    }
 }
