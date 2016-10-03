@@ -11,15 +11,27 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class ViewHistory extends ActionBarActivity {
-
+    private static final String FILENAME = "file1.sav";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_history);
-
+        loadFromFile();
         ListView listView = (ListView) findViewById(R.id.CompletedHabitList);
         ArrayList<CompletedHabits> comphabit =
                 CompletedHabitListController.getcompHabitList().getHabitlist();
@@ -54,7 +66,7 @@ public class ViewHistory extends ActionBarActivity {
                                  HabitListController.getHabitList().findHabit(habit.getFinishedhabit());
                         HabitListController.getHabitList().DecreaseCounter(anotherhabit);
                         CompletedHabitListController.getcompHabitList().removeHabit(habit);
-
+                        saveInFile();
                     }
                 });
                 adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -71,6 +83,48 @@ public class ViewHistory extends ActionBarActivity {
     }
     public void BackToMain(View view){
         finish();
+    }
+
+    private void loadFromFile() {
+        try {
+            FileInputStream fis = openFileInput(FILENAME);
+            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+
+            Gson gson = new Gson();
+            Type listType = new TypeToken<ArrayList<CompletedHabits>>(){}.getType();
+            ArrayList<CompletedHabits> newlist = gson.fromJson(in,listType);
+            CompletedHabitListController.getcompHabitList().SetHabitList(newlist);
+
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException();
+        }
+    }
+
+    private void saveInFile() {
+        try {
+            FileOutputStream fos = openFileOutput(FILENAME,
+                    0);
+
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
+
+            Gson gson = new Gson();
+            ArrayList hablist = CompletedHabitListController.getcompHabitList().getHabitlist();
+            gson.toJson(hablist,out);
+            out.flush();
+
+            fos.close();
+
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException();
+        }
     }
 
 }

@@ -22,6 +22,10 @@ public class HabitList {
         notifyListeners();
     }
 
+    public void SetHabitList(ArrayList<Habit> newlist){
+        habitlist = newlist;
+    }
+
     public void IncreaseCounter(Habit oldhabit){
 
         oldhabit.IncreaseCompletion();

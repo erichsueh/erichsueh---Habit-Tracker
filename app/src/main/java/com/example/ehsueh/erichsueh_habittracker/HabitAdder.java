@@ -6,6 +6,13 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
+
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +21,7 @@ import java.util.List;
  * Created by Eric Shay on 2016-10-01.
  */
 public class HabitAdder extends ActionBarActivity{
-
+    private static final String FILENAME = "file.sav";
     private EditText bodyText;
     private CheckBox mondaybox;
 
@@ -40,7 +47,30 @@ public class HabitAdder extends ActionBarActivity{
         Habit newhabit = new Habit(text,mArray);
         HabitListController hl = new HabitListController();
         hl.addHabit(newhabit);
+        saveInFile();
         finish();
     }
 
+    private void saveInFile() {
+        try {
+            FileOutputStream fos = openFileOutput(FILENAME,
+                    0);
+
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
+
+            Gson gson = new Gson();
+            ArrayList hablist = HabitListController.getHabitList().getHabitlist();
+            gson.toJson(hablist,out);
+            out.flush();
+
+            fos.close();
+
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException();
+        }
+    }
 }

@@ -15,6 +15,10 @@ public class CompletedHabitList {
         listeners = new ArrayList<Listener>();
     }
 
+    public void SetHabitList(ArrayList<CompletedHabits> newlist){
+        completedhabitlist = newlist;
+    }
+
     public void AddCompletedHabit(CompletedHabits comphabit){
         completedhabitlist.add(comphabit);
         notifyListeners();
