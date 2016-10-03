@@ -4,6 +4,8 @@ import java.util.Date;
 
 /**
  * Created by Eric Shay on 2016-09-30.
+ *
+ * This is the completed habits class, for the habits that have been completed, i creat a new "completed habit"
  */
 public class CompletedHabits {
     private String finishedhabit;
@@ -17,10 +19,6 @@ public class CompletedHabits {
 
     public String getFinishedhabit() {
         return finishedhabit;
-    }
-
-    public Date getDate() {
-        return date;
     }
 
 

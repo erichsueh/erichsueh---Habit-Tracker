@@ -33,18 +33,15 @@ import java.util.ArrayList;
 public class MainActivity extends Activity {
     private static final String FILENAME = "file.sav";
     private static final String FILENAME1 = "file1.sav";
-    //private ArrayList<Habit> HabitList = new ArrayList<Habit>();
-    //private HabitList thehabitlist = new HabitList();
-    //private ArrayAdapter<Habit> adapter;
-    //private ListView HabitAndroidList;
 
 
-
+    //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //setting up the habit list so that android knows to update when it updates
+        //code modeled after the Student Picker for android
         loadFromFile();
         ListView listView = (ListView) findViewById(R.id.HabitAndroidList);
         ArrayList<Habit> habits = HabitListController.getHabitList().getHabitlist();
@@ -61,7 +58,8 @@ public class MainActivity extends Activity {
                 habitAdapter.notifyDataSetChanged();
             }
         });
-
+        //one of the menus needed
+        //it can delete habits, and it can increase the completion of th ehabbits
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -107,16 +105,13 @@ public class MainActivity extends Activity {
 
         //adapter.notifyDataSetChanged();
     }
-
+    //this button changes the view to Vhistory, which shows the completed habits list
     public void Vhistory(View view){
         Intent intent = new Intent(this,ViewHistory.class);
         startActivity(intent);
     }
-
+    //this button changes to the Habit adder view, so that they can add new habits to the list
     public void AddtoList(View view){
-        //Habit thehabit = new Habit("Fuckyouworkgoddamit");
-        //HabitList.add(thehabit);
-        //adapter.notifyDataSetChanged();
         Intent intent = new Intent(this,HabitAdder.class);
         startActivity(intent);
     }
@@ -126,9 +121,6 @@ public class MainActivity extends Activity {
     protected void onStart() {
         // TODO Auto-generated method stub
         super.onStart();
-        //adapter = new ArrayAdapter<Habit>(this,
-        //        R.layout.list_item, HabitList);
-        //HabitAndroidList.setAdapter(adapter);
 
     }
 
@@ -159,7 +151,10 @@ public class MainActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
-
+    //again this method is taken from Lonely twitter
+    //these load and two save files load the habit list files and saves habit list file
+    //the extra save file is for the completed habits, that way the json will save even after
+    //a new habit has been added
     private void loadFromFile() {
         try {
             FileInputStream fis = openFileInput(FILENAME);

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 /**
  * Created by Eric Shay on 2016-10-01.
+ *
+ * This is the habit list methods
  */
 public class HabitList {
     //private ArrayList<Habit> Habitlist = new ArrayList<Habit>();
@@ -53,10 +55,6 @@ public class HabitList {
 
     public ArrayList<Habit> getHabitlist() {
         return habitlist;
-    }
-
-    public boolean getCount(int i) {
-        return habitlist.size()== i;
     }
 
 

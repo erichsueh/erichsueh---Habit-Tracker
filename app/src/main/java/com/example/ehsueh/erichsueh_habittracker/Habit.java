@@ -6,6 +6,8 @@ import java.util.Date;
 
 /**
  * Created by Eric Shay on 2016-09-28.
+ * Habit Class for the main habits
+ * has all the necessary stuff saved so it can display the habit well
  */
 public class Habit {
     private String message;

@@ -27,6 +27,11 @@ import java.util.ArrayList;
 
 public class ViewHistory extends ActionBarActivity {
     private static final String FILENAME = "file1.sav";
+
+    //this oncreate method will set the completed habit list controllers, as well as
+    //sets a pop up that can delete old completed habits
+    //once a habit is deleted, it will go look for any habits that have the same name as this current
+    //completed habit and then decrease the count of said habit
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,9 +67,17 @@ public class ViewHistory extends ActionBarActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         CompletedHabits habit = list.get(finalPosition);
-                        Habit anotherhabit =
-                                 HabitListController.getHabitList().findHabit(habit.getFinishedhabit());
+                        try {
+                            Habit anotherhabit =
+                                    HabitListController.getHabitList().findHabit(habit.getFinishedhabit());
+
                         HabitListController.getHabitList().DecreaseCounter(anotherhabit);
+                        }
+                        catch(NullPointerException e){
+                            CompletedHabitListController.getcompHabitList().removeHabit(habit);
+                            saveInFile();
+                            System.err.print("No habit found");
+                        }
                         CompletedHabitListController.getcompHabitList().removeHabit(habit);
                         saveInFile();
                     }
@@ -81,10 +94,14 @@ public class ViewHistory extends ActionBarActivity {
         });
 
     }
+
+    //this is just a button that takes the user back to the main view
     public void BackToMain(View view){
         finish();
     }
 
+    //these two methods are taken from Lonely Twitter, it makes sure that Completed Habits List
+    //will persist even after we're done
     private void loadFromFile() {
         try {
             FileInputStream fis = openFileInput(FILENAME);

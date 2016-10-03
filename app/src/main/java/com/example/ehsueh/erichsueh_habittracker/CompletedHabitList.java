@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Eric Shay on 2016-10-02.
+ * This class is created to be able to Control the completed habits for viewing
  */
 public class CompletedHabitList {
     protected ArrayList<CompletedHabits> completedhabitlist;

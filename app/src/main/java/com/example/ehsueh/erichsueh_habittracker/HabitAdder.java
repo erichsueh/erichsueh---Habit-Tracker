@@ -19,6 +19,15 @@ import java.util.List;
 
 /**
  * Created by Eric Shay on 2016-10-01.
+ *
+ * This is the Habit Editor (The screen where they can customize to their habits
+ *
+ * THe on Create method changes the view of the instance to the habite view
+ * FinishedAdding is the button from habiter (the finished button)
+ * FInish adder will take the message as well as days of the week and compile it into a habit
+ * then it will add the habit and then save it to the list , then the gson persistance adder will
+ * take over and save it to a gson file so that persistance remains
+ * the gson saver is taken from LonelyTwitter, with close to no changes
  */
 public class HabitAdder extends ActionBarActivity{
     private static final String FILENAME = "file.sav";
@@ -50,40 +59,40 @@ public class HabitAdder extends ActionBarActivity{
         saturdaybox = (CheckBox) findViewById(R.id.SatBox);
         sundaybox = (CheckBox) findViewById(R.id.SunBox);
 
-        if (mondaybox.isChecked()){
-            mArray.add("Mon");
-        }
+            if (mondaybox.isChecked()) {
+                mArray.add("Mon");
+            }
 
-        if (tuesdaybox.isChecked()){
-            mArray.add("Tue");
-        }
+            if (tuesdaybox.isChecked()) {
+                mArray.add("Tue");
+            }
 
-        if (wednesdaybox.isChecked()){
-            mArray.add("Wed");
-        }
+            if (wednesdaybox.isChecked()) {
+                mArray.add("Wed");
+            }
 
-        if (thursdaybox.isChecked()){
-            mArray.add("Thu");
-        }
+            if (thursdaybox.isChecked()) {
+                mArray.add("Thu");
+            }
 
-        if (fridaybox.isChecked()){
-            mArray.add("Fri");
-        }
+            if (fridaybox.isChecked()) {
+                mArray.add("Fri");
+            }
 
-        if (saturdaybox.isChecked()){
-            mArray.add("Sat");
-        }
+            if (saturdaybox.isChecked()) {
+                mArray.add("Sat");
+            }
 
-        if (sundaybox.isChecked()){
-            mArray.add("Sun");
-        }
+            if (sundaybox.isChecked()) {
+                mArray.add("Sun");
+            }
 
-        Habit newhabit = new Habit(text,mArray);
-        HabitListController hl = new HabitListController();
-        hl.addHabit(newhabit);
-        saveInFile();
-        finish();
-    }
+            Habit newhabit = new Habit(text, mArray);
+            HabitListController hl = new HabitListController();
+            hl.addHabit(newhabit);
+            saveInFile();
+            finish();
+        }
 
     private void saveInFile() {
         try {
